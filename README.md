@@ -1,95 +1,35 @@
-# Exchange Rate Comparer
+Exchange Rate Comparator
 
-Este proyecto forma parte de una prueba técnica. Su objetivo es consultar 3 APIs diferentes de tipo de cambio y devolver la mejor oferta (monto convertido más alto).
+Una aplicación simple pero poderosa en .NET 9.0 que consulta múltiples APIs de tasas de cambio y te dice automáticamente cuál ofrece la mejor tasa. Ideal para elegir a quién le mandas tu dinero al extranjero.  
 
-## 🧩 Arquitectura
+¿Qué hace esta API?
+- Consulta varias APIs de tasas de cambio **en paralelo**
+- Elige automáticamente la **mejor oferta disponible**
+- Sigue funcionando aunque alguna API falle
+- Resistente a errores, con **pruebas unitarias completas**
+- Soporta respuestas en **JSON y XML**
+- Registra errores y resultados para auditoría
 
-* .NET 9.0 (preview)
-* Patrón SOLID (estrategia por API)
-* Microservicios (cada API es un contenedor Docker)
-* Proyecto principal `ExchangeRateComparer` consume las 3
-* Swagger habilitado (`/swagger`)
-* Pruebas unitarias con xUnit y Moq
+Tecnologías y diseño
+- .NET 9.0
+- Arquitectura limpia (Clean Architecture)
+- Principios SOLID
+- Inyección de dependencias (`IApiStrategy`)
+- Procesamiento paralelo con `Task.WhenAll`
+- Pruebas unitarias con **xUnit + Moq**
 
-## 🚀 Cómo levantar el proyecto
-
-### Requisitos:
-
-* Docker y Docker Compose
-* SDK .NET 9.0 Preview instalado localmente (si compilas fuera de Docker)
-
-### 1. Clona el proyecto
-
-```bash
+Ejecutar proyecto 
 git clone https://github.com/teresavargas19/ExchangeRateApis.git
 cd ExchangeRateApis
-```
+docker-compose up --build
 
-### 2. Levanta todo con Docker Compose
+Pruebas
+Cobertura total de los escenarios críticos:
+- Selección de la mejor tasa entre múltiples APIs
+- Falla total o parcial de proveedores
+- Respuesta nula
+- Empates de tasas
+- Lógica desacoplada y fácil de testear
 
-```bash
-docker-compose build
-docker-compose up
-```
-
-Esto construirá y levantará:
-
-* `api1` en `http://localhost:5001/random1`
-* `api2` en `http://localhost:5002/random2`
-* `api3` en `http://localhost:5003/random3`
-* `comparer` en `http://localhost:5000/compare`
-
-### 3. Accede a Swagger
-
-```http
-http://localhost:5000/swagger
-```
-
-Aquí podrás probar `GET /compare` visualmente.
-
-## 📌 Ejemplo de respuesta
-
-```json
-{
-  "sourceApi": "Api3",
-  "convertedAmount": 91.23
-}
-```
-
-## 🧪 Pruebas
-
-### Ejecutar pruebas localmente:
-
-```bash
-cd ExchangeRateComparerApp.Tests
- dotnet test
-```
-
-Incluye pruebas que validan que `ExchangeRateService` elige correctamente la mejor tasa entre varias estrategias.
-
-## 📦 Estructura del proyecto
-
-```
-├── Api1/Api2/Api3           → Microservicios simulados
-├── ExchangeRateComparer  → Lógica principal
-│   ├── Controllers           → CompareController.cs
-│   ├── Services              → ExchangeRateService.cs
-│   ├── Strategies            → Api1/2/3Strategy.cs
-├── ExchangeRateComparer.Tests → xUnit + Moq
-├── docker-compose.yml       → Orquestación completa
-```
-
-## ✅ Completado
-
-* [x] Swagger UI
-* [x] Docker Compose
-* [x] Principios SOLID
-* [x] Logs
-* [x] Unit Tests
-* [x] Compatible con .NET 9
-
----
-
-## 📬 Contacto
-
-Para cualquier pregunta técnica, puedes escribirme a: `vargasbrito19@gmail.com`
+Ejecutar pruebas
+dotnet test
