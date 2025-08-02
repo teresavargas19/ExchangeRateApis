@@ -15,3 +15,12 @@ services:
     build: ./Api3
     ports:
       - "5003:8080"
+
+  comparer:
+    build: ./ExchangeRateComparer
+    ports:
+      - "5000:8080"
+    depends_on:
+      - api1
+      - api2
+      - api3
