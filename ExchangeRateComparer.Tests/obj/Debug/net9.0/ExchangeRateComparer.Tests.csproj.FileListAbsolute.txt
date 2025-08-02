@@ -111,3 +111,6 @@ C:\apis\ExchangeRateComparer.Tests\obj\Debug\net9.0\refint\ExchangeRateComparer.
 C:\apis\ExchangeRateComparer.Tests\obj\Debug\net9.0\ExchangeRateComparer.Tests.pdb
 C:\apis\ExchangeRateComparer.Tests\obj\Debug\net9.0\ExchangeRateComparer.Tests.genruntimeconfig.cache
 C:\apis\ExchangeRateComparer.Tests\obj\Debug\net9.0\ref\ExchangeRateComparer.Tests.dll
+C:\apis\ExchangeRateComparer.Tests\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\apis\ExchangeRateComparer.Tests\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\apis\ExchangeRateComparer.Tests\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll

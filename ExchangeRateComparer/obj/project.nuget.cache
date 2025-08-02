@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Zi9kFS3A4xo=",
+  "dgSpecHash": "hobY3OjGggI=",
   "success": true,
-  "projectFilePath": "C:\\apis\\exchangeratecomparer\\ExchangeRateComparer.csproj",
+  "projectFilePath": "C:\\apis\\ExchangeRateComparer\\ExchangeRateComparer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Teresa Vargas\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.7\\microsoft.aspnetcore.openapi.9.0.7.nupkg.sha512",
     "C:\\Users\\Teresa Vargas\\.nuget\\packages\\microsoft.extensions.apidescription.server\\9.0.0\\microsoft.extensions.apidescription.server.9.0.0.nupkg.sha512",
